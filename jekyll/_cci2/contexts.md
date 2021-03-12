@@ -117,6 +117,16 @@ jobs:
 
 If you move your repository to a new organization, you must also have the context with that unique name set in the new organization.
 
+### Contexts validation
+
+#### Context names
+
+The context name must be 200 or fewer characters, must contain at least one non-whitespace character, and must not contain leading, trailing or vertical whitespaces.
+
+#### Maximum contexts per organization
+
+An organization may contain no more than 500 contexts.
+
 ## Combining contexts
 
 You can combine several contexts for a single job by just adding them to the context list. Contexts are applied in order, so in the case of overlaps, later contexts override earlier ones. This way you can scope contexts to be as small and granular as you like.
@@ -253,6 +263,21 @@ endpoint with the appropriate request body. For this request, replace the
 `context-id` and the `env-var-name` with the ID for the context and the new 
 environment variable name. The request body should include a `value` key 
 containing the plaintext secret as a string.
+
+##### Environment Variable validation
+
+###### Environment variable names
+
+The environment variable name must be 300 or fewer characters, must have alpha or _ as the first character and can contain alphanumeric or _ as the remaining characters.
+
+###### Environment variable values
+
+An environment variable value must be 32000 or fewer characters and must NOT contain null. 
+*Note*: Empty is a valid option for environment variable values.
+
+###### Maximum Environment variables per context
+
+A context may contain no more than 100 environment variables.
 
 #### Deleting Environment Variables
 
